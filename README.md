@@ -18,17 +18,13 @@
 
 
 ## Usage
- To convert <pre><i>filename</i>.dot</pre> to <pre><i>filename</i>.pdf</pre>, all you just need to run the following command.
+ To convert <tt><i>filename</i>.dot</tt> to <tt><i>filename</i>.pdf</tt>, all you just need to run the following command.
 
- <pre>
-    $ dot2pdf <i>filename</i>.dot
- </pre>
+ <pre> $ dot2pdf <i>filename</i>.dot </pre>
 
  If you want to change the output path, you may run the following command.
 
- <pre>
-    $ dot2pdf <i>filename</i>.dot <i>path_to_output</i>.pdf
- </pre>
+ <pre> $ dot2pdf <i>filename</i>.dot <i>path_to_output</i>.pdf </pre>
 
 
 <!--
@@ -41,4 +37,4 @@
  [yoshphys](https://github.com/yoshphys)
 
 ## Licence
- ReactorKit is under MIT license. See the [LICENSE](https://github.com/yoshphys/dot2pdf/blob/main/LICENSE) for more info.
+ dot2pdf is under MIT license. See the [LICENSE](https://github.com/yoshphys/dot2pdf/blob/main/LICENSE) for more info.
