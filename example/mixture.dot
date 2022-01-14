@@ -1,0 +1,32 @@
+digraph mixture {
+
+    graph [
+        ranksep = 0.3
+    ]
+
+    node [
+        fixedsize = true,
+        width = 0.3
+    ];
+
+    subgraph cluster {
+        label = "N";
+        labeljust = "r";
+        shape = box;
+
+        s [texlbl = "$\mathbf{s}_n$", shape = circle];
+        x [texlbl = "$\mathbf{x}_n$", shape = circle];
+
+        s -> x;
+
+        {rank = same; s; x;};
+    };
+
+    pi    [texlbl = "$\mathbf{\pi}$",    shape = circle];
+    Theta [texlbl = "$\mathbf{\Theta}$", shape = circle];
+
+    pi -> s;
+    Theta -> x;
+
+    {rank = sink; pi; Theta;};
+}

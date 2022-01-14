@@ -1,0 +1,62 @@
+#!/bin/bash
+
+if !(type "dot2tex" >/dev/null 2>&1); then
+    echo "ERROR: dot2tex command is not installed. Install dot2tex via pip" >&2
+    exit 1
+fi
+
+if !(type "pdflatex" >/dev/null 2>&1); then
+    echo "ERROR: pdflatex command is not installed. Install pdflatex" >&2
+    exit 1
+fi
+
+if !(type "pdfcrop" >/dev/null 2>&1); then
+    echo "ERROR: pdfcrop command is not found" >&2
+    exit 1
+fi
+
+function getpath() {
+    if ! [ -e $1 ]; then
+        echo "ERROR: file/directory was not found > $1" >&2
+        return 1
+    fi
+    path=$(cd $(dirname $1) && pwd)/$(basename $1)
+    echo $path
+    return 0
+}
+
+if [ $# -ne 2 ] && [ $# -ne 1 ]; then
+    echo "USAGE: $0 <DOT file> [PDF file]"
+    exit
+fi
+
+dotpath=$(getpath $1)
+if [ $? -eq 1 ]; then exit 1; fi
+
+pdfpath=""
+label=""
+if [ $# -eq 1 ]; then
+    label=$(basename $dotpath .dot)
+    pdfpath=$PWD/$label.pdf
+elif [ $# -eq 2 ]; then
+    label=$(basename $2 .pdf)
+    pdfdir=$(getpath $(dirname $2))
+    if [ $? -eq 1 ]; then exit 1; fi
+    pdfpath=$pdfdir/$(basename $2)
+fi
+
+itmdir=$(dirname $dotpath)/latex
+if ! [ -d $itmdir ]; then
+    mkdir $itmdir
+fi
+
+cd $itmdir
+
+dot2tex -tmath $dotpath > $label.tex && pdflatex $label.tex && pdfcrop $label.pdf $pdfpath
+
+if [ $? -eq 1 ]; then
+    echo "ERROR: failed to generate PDF file" >&2
+    exit 1
+fi
+
+exit 0

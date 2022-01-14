@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[x11names, svgnames, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',line join=bevel,]
+\begin{tikzpicture}[>=latex',line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (0.0bp,0.0bp) -- (0.0bp,105.0bp) -- (94.0bp,105.0bp) -- (94.0bp,0.0bp) -- cycle;
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (8.0bp,36.0bp) -- (8.0bp,97.0bp) -- (86.0bp,97.0bp) -- (86.0bp,36.0bp) -- cycle;
+  \draw (73.0bp,85.5bp) node {$N$};
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (8.0bp,36.0bp) -- (8.0bp,97.0bp) -- (86.0bp,97.0bp) -- (86.0bp,36.0bp) -- cycle;
+  \draw (73.0bp,85.5bp) node {$N$};
+\end{scope}
+  \pgfsetcolor{black}
+  % Edge: s -> x
+  \draw [->] (38.25bp,55.0bp) .. controls (40.714bp,55.0bp) and (43.177bp,55.0bp)  .. (55.77bp,55.0bp);
+  % Edge: pi -> s
+  \draw [->] (27.0bp,22.073bp) .. controls (27.0bp,25.572bp) and (27.0bp,29.63bp)  .. (27.0bp,43.833bp);
+  % Edge: Theta -> x
+  \draw [->] (67.0bp,22.073bp) .. controls (67.0bp,25.572bp) and (67.0bp,29.63bp)  .. (67.0bp,43.833bp);
+  % Node: pi
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (27.0bp,11.0bp) ellipse (11.0bp and 11.0bp);
+  \draw (27.0bp,11.0bp) node {$\mathbf{\pi}$};
+\end{scope}
+  % Node: Theta
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (67.0bp,11.0bp) ellipse (11.0bp and 11.0bp);
+  \draw (67.0bp,11.0bp) node {$\mathbf{\Theta}$};
+\end{scope}
+  % Node: s
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (27.0bp,55.0bp) ellipse (11.0bp and 11.0bp);
+  \draw (27.0bp,55.0bp) node {$\mathbf{s}_n$};
+\end{scope}
+  % Node: x
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (67.0bp,55.0bp) ellipse (11.0bp and 11.0bp);
+  \draw (67.0bp,55.0bp) node {$\mathbf{x}_n$};
+\end{scope}
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
+
